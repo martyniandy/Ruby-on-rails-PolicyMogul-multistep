@@ -1,0 +1,19 @@
+aside.col-6.col-md-2.p-0.left_nav.position-relative
+  .logo.px-4.pt-4.pb-0.close_div
+    = link_to 'X', '', class: "side_close"
+    = image_tag('logo.svg', class: 'mw-100')
+  nav.navbar.py-2.px-0
+    ul.link_group.py-2.px-0.m-0
+      li.nav-item.px-3.my-3
+        = link_to 'Home', '#', class: "nav-link px-0"
+      li.nav-item.px-3.my-3.active
+        = link_to 'Campaigns', root_path, class: "nav-link px-0"
+      li.nav-item.px-3.my-3
+        = link_to 'Organisations', '#', class: "nav-link px-0"
+  .position-absolute.px-3.terms_column.w-100.pb-3
+    .py-3.mb-3
+      = link_to 'Terms & conditions', '#'
+      = link_to 'Business terms & conditions', '#'
+      = link_to 'Privacy Policy', '#'
+    p.text-center.mb-0
+      | © PolicyMogul #{Date.today.year}

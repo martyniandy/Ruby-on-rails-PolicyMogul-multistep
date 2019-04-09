@@ -1,0 +1,135 @@
+main.col.p-0
+  .px-md-3.px-3.top_column
+    .row
+      .d-sm-block.d-md-none.back_bl.col-6.px-0.px-xs-3.py-2
+        button#side_display.d-inline-block.btn
+          = fa_icon "bars"
+        = image_tag('logo.svg', class: 'd-inline-block')
+      .ml-md-auto.col-6.text-right.py-2.position-relative.overflow-hidden
+        .skew_bg.position-absolute.w-75.h-100
+        p.mb-0.position-relative
+          = link_to '#', class: "mr-2" do
+            = fa_icon "bell"
+          span.d-md-inline-block.d-none elliot_robinson@hotmail.co.uk
+          = link_to '#', class: "ml-2" do
+            = fa_icon "caret-down"
+
+  = form_tag root_path, method: 'get', id: 'campaign-form' do
+    .p-3.content_main
+      .row
+        .col-md-9.bg-light.py-4.radius_c.shadow-sm
+          /! Nav pills
+          ul.nav.nav-pills.justify-content-center role="tablist"
+            li.nav-item
+              .wizard_line
+              = link_to '1', '#new', class: 'nav-link active', :'data-toggle' => "pill"
+            li.nav-item
+              .wizard_line
+              = link_to '2', '#access', class: 'nav-link nav-2', :'data-toggle' => "pill"
+            li.nav-item
+              = link_to '3', '#tags', class: 'nav-link', :'data-toggle' => "pill"
+          /! Tab panes
+          .tab-content.mt-3
+            #new.container.tab-pane.active
+              br/
+              h5.mb-4 Create new Campaign
+              .form-group
+                label Title
+                = text_field_tag :title, '', class: "form-control"
+              .form-group.low-mrgn-bot
+                label Description
+                = text_area_tag :description, '', rows: "8", class: "form-control", placeholder: "Enter as much information here as possible to describe your campaign and what you are trying to achieve. Others will see this description unless the campaign is accessible to collaborators only."
+              .below-text
+                | Surround content with an asterisk on each side to make it
+                span.italic  italic.
+                |  Surround content with two asterisks on each side to make it
+                span.bold  bold.
+              .text-right
+                = link_to 'Next', '', class: "btnNext btn", id: 'step1btn'
+
+            #access.container.tab-pane.fade
+              br/
+              h5.mb-4 This Campaign will be accessible to:
+              .left_border.pl-2
+                .custom-control.custom-radio.mb-4
+                  = radio_button_tag :accessible_to, 'everyone', true, class: "custom-control-input"
+                  label.custom-control-label.pl-1 for="accessible_to_everyone"
+                    strong.d-block.mb-2 Everyone
+                    | This campaign will be visible to other Policy Mogul users and may be indexed by search engines. Specific documents, collaborators and other information you choose can be made available to campaign collaborators only.
+                .custom-control.custom-radio.mb-4
+                  = radio_button_tag :accessible_to, 'both', false, class: "custom-control-input"
+                  label.custom-control-label.pl-1 for="accessible_to_both"
+                    strong.d-block.mb-2 Parliamentarians and collaborators only
+                    | Policy Mogul maintains a list of MPs and peers, and allows them and their staff to view campaigns related to their interests. Specific documents, collaborators and other information you choose can be made available to campaign collaborators only
+                .custom-control.custom-radio.mb-4
+                  = radio_button_tag :accessible_to, 'collaborators', false, class: "custom-control-input"
+                  label.custom-control-label.pl-1 for="accessible_to_collaborators"
+                    strong.d-block.mb-2 Collaborators only
+                    | This campaign will not be displayed to others you will need to invite specific people in order to collaborate with them.
+              .text-right
+                = link_to 'Previous', '', class: "btnPrevious btn float-left"
+                = link_to 'Next', '', class: "btnNext btn"
+            #tags.container.tab-pane.fade
+              br/
+              h5.mb-4 Tags that describe this Campaign
+              .tags_list
+              .add_tags.mt-3
+                = text_field_tag :tags, '', class: "form-control", placeholder: "Type to add more tags..."
+                .check_tags.p-2
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Accident and emergency / A&E', false, class: "custom-control-input", name: "tags[]", id: 'accident_n_emergency'
+                    label.custom-control-label for="accident_n_emergency" Accident and emergency / A&E
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Active Ageing', false, class: "custom-control-input", name: "tags[]", id: 'active_ageing'
+                    label.custom-control-label for="active_ageing" Active Ageing
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Aeroplans', false, class: "custom-control-input", name: "tags[]", id: 'aeroplans'
+                    label.custom-control-label for="aeroplans" Aeroplans
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Age of consent', false, class: "custom-control-input", name: "tags[]", id: 'age_of_consent'
+                    label.custom-control-label for="age_of_consent" Age of consent
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'AIDS', false, class: "custom-control-input", name: "tags[]", id: 'aids'
+                    label.custom-control-label for="aids" AIDS
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Air Conditioning', false, class: "custom-control-input", name: "tags[]", id: 'air_conditioning'
+                    label.custom-control-label for="air_conditioning" Air Conditioning
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Air Fares', false, class: "custom-control-input", name: "tags[]", id: 'air_fares'
+                    label.custom-control-label for="air_fares" Air Fares
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Air Traffic Control', false, class: "custom-control-input", name: "tags[]", id: 'air_traffic_control'
+                    label.custom-control-label for="air_traffic_control" Air Traffic Control
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Albania', false, class: "custom-control-input", name: "tags[]", id: 'albania'
+                    label.custom-control-label for="albania" Albania
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Environment (Environment education)', false, class: "custom-control-input", name: "tags[]", id: 'environment'
+                    label.custom-control-label for="environment" Environment (Environment education)
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Energy Policy', false, class: "custom-control-input", name: "tags[]", id: 'energy_policy'
+                    label.custom-control-label for="energy_policy" Energy Policy
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Energy (Green fuel)', false, class: "custom-control-input", name: "tags[]", id: 'energy_green_fuel'
+                    label.custom-control-label for="energy_green_fuel" Energy (Green fuel)
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Energy (Exploration)', false, class: "custom-control-input", name: "tags[]", id: 'energy_exploration'
+                    label.custom-control-label for="energy_exploration" Energy (Exploration)
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Energy (Fossil fuels)', false, class: "custom-control-input", name: "tags[]", id: 'energy_fossil_fuels'
+                    label.custom-control-label for="energy_fossil_fuels" Energy (Fossil fuels)
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Disabled', false, class: "custom-control-input", name: "tags[]", id: 'disabled'
+                    label.custom-control-label for="disabled" Disabled
+                  .custom-control.custom-checkbox.mb-1
+                    = check_box_tag :tags, 'Energy (Efficiency)', false, class: "custom-control-input", name: "tags[]", id: 'energy_efficiency'
+                    label.custom-control-label for="energy_efficiency" Energy (Efficiency)
+              .text-right
+                = link_to 'Previous', '', class: "btnPrevious btn float-left"
+                = submit_tag 'Save', class: 'btnSave btn'
+
+        .col-md-3.text-center.mt-2
+          = link_to '#', class: "back_anchor" do
+            = fa_icon "long-arrow-alt-left", text: "Back to campaigns"
+
+= javascript_include_tag 'advanced', 'data-turbolinks-track': 'reload'

@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title Policymogul
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700", media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container-fluid
+      .row.min-vh-100.position-relative
+        = render partial: 'shared/left_bar'
+        = yield
